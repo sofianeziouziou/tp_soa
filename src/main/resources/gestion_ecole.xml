@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ECOLE xmlns="http://www.example.org/gestion_ecole">
+
+    <ADMINISTRATION id_admin="1">
+        <nom>Ben Ali</nom>
+        <prenom>Amine</prenom>
+        <fonction>Directeur</fonction>
+        <email>amine.benali@ecole.tn</email>
+    </ADMINISTRATION>
+
+    <MAITRES>
+        <MAITRE id_maitre="1">
+            <nom>Trabelsi</nom>
+            <prenom>Karim</prenom>
+            <specialite>Mathématiques</specialite>
+        </MAITRE>
+        <MAITRE id_maitre="2">
+            <nom>Mejri</nom>
+            <prenom>Rayen</prenom>
+            <specialite>Français</specialite>
+        </MAITRE>
+    </MAITRES>
+
+    <MATIERES>
+        <MATIERE id_matiere="1">
+            <nom_matiere>Mathématiques</nom_matiere>
+            <coefficient>4</coefficient>
+            <maitre id_maitre="1">
+                <nom>Trabelsi</nom>
+                <prenom>Karim</prenom>
+                <specialite>Mathématiques</specialite>
+            </maitre>
+        </MATIERE>
+        <MATIERE id_matiere="2">
+            <nom_matiere>Français</nom_matiere>
+            <coefficient>3</coefficient>
+            <maitre id_maitre="2">
+                <nom>Mejri</nom>
+                <prenom>Rayen</prenom>
+                <specialite>Français</specialite>
+            </maitre>
+        </MATIERE>
+    </MATIERES>
+
+    <ELEVES>
+        <ELEVE id_eleve="1">
+            <nom>Ben Salem</nom>
+            <prenom>Youssef</prenom>
+            <age>15</age>
+            <classe>3ème A</classe>
+        </ELEVE>
+        <ELEVE id_eleve="2">
+            <nom>Ayari</nom>
+            <prenom>Fatma</prenom>
+            <age>16</age>
+            <classe>3ème B</classe>
+        </ELEVE>
+    </ELEVES>
+
+    <NOTES>
+        <NOTE id_note="1">
+            <eleve id_eleve="1">
+                <nom>Ben Salem</nom>
+                <prenom>Youssef</prenom>
+                <age>15</age>
+                <classe>3ème A</classe>
+            </eleve>
+            <matiere id_matiere="1">
+                <nom_matiere>Mathématiques</nom_matiere>
+                <coefficient>4</coefficient>
+                <maitre id_maitre="1">
+                    <nom>Trabelsi</nom>
+                    <prenom>Karim</prenom>
+                    <specialite>Mathématiques</specialite>
+                </maitre>
+            </matiere>
+            <note_ds>13.5</note_ds>
+            <note_examen>15.0</note_examen>
+            <moyenne>14.25</moyenne>
+        </NOTE>
+
+        <NOTE id_note="2">
+            <eleve id_eleve="2">
+                <nom>Ayari</nom>
+                <prenom>Fatma</prenom>
+                <age>16</age>
+                <classe>3ème B</classe>
+            </eleve>
+            <matiere id_matiere="2">
+                <nom_matiere>Français</nom_matiere>
+                <coefficient>3</coefficient>
+                <maitre id_maitre="2">
+                    <nom>Mejri</nom>
+                    <prenom>Rayen</prenom>
+                    <specialite>Français</specialite>
+                </maitre>
+            </matiere>
+            <note_ds>16.0</note_ds>
+            <note_examen>17.0</note_examen>
+            <moyenne>16.5</moyenne>
+        </NOTE>
+    </NOTES>
+
+    <RESULTATS>
+        <RESULTAT_FINAL id_resultat="1">
+            <eleve id_eleve="1">
+                <nom>Ben Salem</nom>
+                <prenom>Youssef</prenom>
+                <age>15</age>
+                <classe>3ème A</classe>
+            </eleve>
+            <moyenne_generale>14.25</moyenne_generale>
+            <mention>Bien</mention>
+            <decision>Admis</decision>
+        </RESULTAT_FINAL>
+
+        <RESULTAT_FINAL id_resultat="2">
+            <eleve id_eleve="2">
+                <nom>Ayari</nom>
+                <prenom>Fatma</prenom>
+                <age>16</age>
+                <classe>3ème B</classe>
+            </eleve>
+            <moyenne_generale>16.50</moyenne_generale>
+            <mention>Très Bien</mention>
+            <decision>Admise</decision>
+        </RESULTAT_FINAL>
+    </RESULTATS>
+
+</ECOLE>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.org/gestion_ecole"
+           xmlns:tns="http://www.example.org/gestion_ecole"
+           elementFormDefault="qualified">
+
+    <!-- Élément racine -->
+    <xs:element name="ECOLE">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ADMINISTRATION" type="tns:ADMINISTRATION" maxOccurs="unbounded"/>
+                <xs:element name="MAITRES" type="tns:LISTE_MAITRES"/>
+                <xs:element name="MATIERES" type="tns:LISTE_MATIERES"/>
+                <xs:element name="ELEVES" type="tns:LISTE_ELEVES"/>
+                <xs:element name="NOTES" type="tns:LISTE_NOTES"/>
+                <xs:element name="RESULTATS" type="tns:LISTE_RESULTATS"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ADMINISTRATION -->
+    <xs:complexType name="ADMINISTRATION">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="fonction" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id_admin" type="xs:int" use="required"/>
+    </xs:complexType>
+
+    <!-- MAITRE -->
+    <xs:complexType name="MAITRE">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="specialite" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id_maitre" type="xs:int" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="LISTE_MAITRES">
+        <xs:sequence>
+            <xs:element name="MAITRE" type="tns:MAITRE" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- MATIERE -->
+    <xs:complexType name="MATIERE">
+        <xs:sequence>
+            <xs:element name="nom_matiere" type="xs:string"/>
+            <xs:element name="coefficient" type="xs:float"/>
+            <xs:element name="maitre" type="tns:MAITRE"/>
+        </xs:sequence>
+        <xs:attribute name="id_matiere" type="xs:int" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="LISTE_MATIERES">
+        <xs:sequence>
+            <xs:element name="MATIERE" type="tns:MATIERE" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ELEVE -->
+    <xs:complexType name="ELEVE">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="classe" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id_eleve" type="xs:int" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="LISTE_ELEVES">
+        <xs:sequence>
+            <xs:element name="ELEVE" type="tns:ELEVE" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- NOTE -->
+    <xs:complexType name="NOTE">
+        <xs:sequence>
+            <xs:element name="eleve" type="tns:ELEVE"/>
+            <xs:element name="matiere" type="tns:MATIERE"/>
+            <xs:element name="note_ds" type="xs:float"/>
+            <xs:element name="note_examen" type="xs:float"/>
+            <xs:element name="moyenne" type="xs:float"/>
+        </xs:sequence>
+        <xs:attribute name="id_note" type="xs:int" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="LISTE_NOTES">
+        <xs:sequence>
+            <xs:element name="NOTE" type="tns:NOTE" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- RESULTAT_FINAL -->
+    <xs:complexType name="RESULTAT_FINAL">
+        <xs:sequence>
+            <xs:element name="eleve" type="tns:ELEVE"/>
+            <xs:element name="moyenne_generale" type="xs:float"/>
+            <xs:element name="mention" type="xs:string"/>
+            <xs:element name="decision" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id_resultat" type="xs:int" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="LISTE_RESULTATS">
+        <xs:sequence>
+            <xs:element name="RESULTAT_FINAL" type="tns:RESULTAT_FINAL" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
